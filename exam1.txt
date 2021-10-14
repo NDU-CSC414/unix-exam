@@ -7,14 +7,13 @@ MC	Which command deletes a directory whose absolute path is /home/CSC414/mydir. 
 MC	Which command prints the number of lines in file FILE	print lines FILE	incorrect	less -l FILE	incorrect	wc -l FILE	correct	more -l FILE	incorrect	
 MC	What is the output of the last command in the sequence: $mkdir a;$cd a;$touch b;$ls -a>c;$cat c	b c	incorrect	. .. b	incorrect	. .. b c	correct	a b c	incorrect	
 MC	Starting from any directory which command is used to returns to one's home directory	cd .	incorrect	cd ..	incorrect	cd	correct	go home	incorrect	
-MC	Suppose that file File does NOT contain PAT. What is the output of the following sequence: $grep PAT FILE;$if [ "$?" -eq 0 ]; then echo One; else echo Two; fi	cd .	incorrect	cd ..	incorrect	cd	correct	go home	incorrect	
-TF	Suppose that file File does NOT contain PAT and  the following sequence is executed: $grep PAT FILE;$if [ "$?" -eq 0 ]; then echo One; else echo Two; fi. Then the output of the previous sequence is: One	true	
+TF	Suppose that file File does NOT contain PAT and  the following sequence is executed: $grep PAT FILE;$if [ "$?" -eq 0 ]; then echo One; else echo Two; fi. Then the output of the previous sequence is: One	false	
 MC	A file called script.sh contains only the following line if [ "$1" -eq 7 ]; then exit 1; else exit 0;fi. Now what is the output of the following sequence: $./script.sh 18;$echo $?	0	correct	1	incorrect	7	incorrect	18	incorrect	
 MC	This question refers to the content of file1. What is the output of: $grep grep "t[a-z \']*s" file1	1	incorrect	2	incorrect	3	incorrect	4	correct	
 MC	This question refers to the content of file1.cpp. Given that the output of $ls -aF is "./ ../ file1.cpp" and PATH is empty. What is the output of sequence: $/usr/bin/cc file1.cpp;./a.out	./ ../ file1.cpp	incorrect	file1.cpp	incorrect	Done	correct	file1.cpp Done	incorrect	
 MC	This question refers to the content of file2.cpp. Given that the output of $ls -aF is "./ ../ file1.cpp" and PATH contains all directories. What is the output of sequence: $/usr/bin/cc file1.cpp;./a.out	./ ../ file1.cpp	incorrect	file1.cpp	incorrect	Done	correct	file1.cpp Done	incorrect	
-MC	This question refers to the content of file4.cpp and file1. What is the output of $cc file4.cpp;$cat file1| ./a.out|wc -l	0	correct	1	incorrect	2	incorrect	3	incorrect	
-MC	This question refers to the content of file5.cpp and file1. What is the output of $cc file5.cpp;$cat file1| ./a.out | wc -l	0	incorrect	1	correct	2	incorrect	3	incorrect	
+MC	This question refers to the content of file4.cpp and file1. What is the output of $cc file4.cpp;$cat file1| ./a.out|wc -l	0	incorrect	1	correct	2	incorrect	3	incorrect	
+MC	This question refers to the content of file5.cpp and file1. What is the output of $cc file5.cpp;$cat file1| ./a.out | wc -l	0	correct	1	incorrect	2	incorrect	3	incorrect	
 MC	This question refers to the content of file6.cpp. What is the output of $cc file6.cpp;$./a.out	x=1	incorrect	x=2	incorrect	x=3	correct	x=4	incorrect	
 MC	This question refers to the content of file1. What is the output of $grep grep file1. Note that nothing refers to no output	for grep which is	correct	grep	incorrect	nothing	incorrect	for	incorrect	
 MC	This question refers to the content of dir1. What is the output of $ls log-?.txt. Note that nothing refers to no output	log-1.txt log-2.txt	correct	log-.txt log-1.txt log-2.txt log-10.txt	incorrect	log-1.txt log-2.txt log-10.txt	incorrect	nothing	incorrect	
@@ -24,7 +23,6 @@ MC	A file FILE contains 50 lines. Which lines of file FILE are displayed by the 
 TF	What is the output of the sequence: $cd;$if [ $(pwd) = "$HOME" ]; then echo True; else echo False; fi.	true	
 MC	This question refers to main.c, content of dir2, and script1.sh. Also, the file tmain.c is an exact copy of main.c. What would be the output if we run $./script1.sh in directory dir2	1	incorrect	2	incorrect	3	incorrect	4	correct	
 MC	This question refers to main.c, content of dir2, and script1.sh. Also, the file tmain.c is an exact copy of main.c. What would be the output if we run the sequence: $rm main.c;$./script1.sh in directory dir2	1	correct	2	incorrect	3	incorrect	4	incorrect	
-MC	This question refers to main.c, content of dir2, and script1.sh. Also, the file tmain.c is an exact copy of main.c and abc.txt, script2.sh are exact copies of script1.sh. What would be the output if we run the sequence: $rm main.c;$./script1.sh in directory dir2	1	correct	2	incorrect	3	incorrect	4	incorrect	
 TF	file File is owned by user ubuntu and has initially permission 644. After executing the sequence: $chmod 444 FILE;echo "new line">>FILE as user ubuntu the new content of FILE is the same	true	
 TF	file File is owned by user ubuntu and has initially permission 644. After executing the sequence: $chmod 755 FILE;echo "new line">>FILE as user ubuntu the new content of FILE is the same	false	
 TF	file File is owned by user ubuntu and has initially permission 644. After executing the sequence: $chmod 766 FILE;echo "new line">>FILE as user john the new content of FILE is the same	true	

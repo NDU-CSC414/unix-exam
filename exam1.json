@@ -109,7 +109,7 @@
     {
         "type":"TF",
         "question":"Suppose that file File does NOT contain PAT and  the following sequence is executed: $grep PAT FILE;$if [ \"$?\" -eq 0 ]; then echo One; else echo Two; fi. Then the output of the previous sequence is: One",
-        "response":"true",
+        "response":"false",
         "points":10     
     },
     {
@@ -160,8 +160,8 @@
         "type":"MC",
         "question":"This question refers to the content of file4.cpp and file1. What is the output of $cc file4.cpp;$cat file1| ./a.out|wc -l",
         "responses":{
-            "1":["0","correct"],
-            "2":["1","incorrect"],
+            "1":["0","incorrect"],
+            "2":["1","correct"],
             "3":["2","incorrect"],
             "4":["3","incorrect"]
         } ,
@@ -171,8 +171,8 @@
         "type":"MC",
         "question":"This question refers to the content of file5.cpp and file1. What is the output of $cc file5.cpp;$cat file1| ./a.out | wc -l",
         "responses":{
-            "1":["0","incorrect"],
-            "2":["1","correct"],
+            "1":["0","correct"],
+            "2":["1","incorrect"],
             "3":["2","incorrect"],
             "4":["3","incorrect"]
         } ,
@@ -264,17 +264,6 @@
     {
         "type":"MC",
         "question":"This question refers to main.c, content of dir2, and script1.sh. Also, the file tmain.c is an exact copy of main.c. What would be the output if we run the sequence: $rm main.c;$./script1.sh in directory dir2",
-        "responses":{
-            "1":["1","correct"],
-            "2":["2","incorrect"],
-            "3":["3","incorrect"],
-            "4":["4","incorrect"]
-        } ,
-        "points":10     
-    },
-    {
-        "type":"MC",
-        "question":"This question refers to main.c, content of dir2, and script1.sh. Also, the file tmain.c is an exact copy of main.c and abc.txt, script2.sh are exact copies of script1.sh. What would be the output if we run the sequence: $rm main.c;$./script1.sh in directory dir2",
         "responses":{
             "1":["1","correct"],
             "2":["2","incorrect"],
