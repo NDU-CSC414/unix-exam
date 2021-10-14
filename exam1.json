@@ -1,0 +1,306 @@
+{
+ "questions":[
+
+    {
+        "type":"MC",
+        "question":"Which command lists the content of the current working directory",
+        "responses":{
+            "1":["ls","correct"],
+            "2":["ps","incorrect"],
+            "3":["grep","incorrect"],
+            "4":["more","incorrect"]
+        },      
+        "points":10
+    },
+    {
+        "type":"MC",
+        "question":"Which command lists the content of the current directory INCLUDING the hidden items",
+        "responses":{
+            "1":["ls","incorrect"],
+            "2":["ls -a","correct"],
+            "3":["ls -l","incorrect"],
+            "4":["ls -F","incorrect"]
+        }  ,
+        "points":10  
+
+    },
+    {
+        "type":"MC",
+        "question":"Which command lists the content of the current directory while showing the permissions of files",
+        "responses":{
+            "1":["ls","incorrect"],
+            "2":["ls -a","incorrect"],
+            "3":["ls -l","correct"],
+            "4":["ls -F","incorrect"]
+        } ,
+        "points":10  
+
+    },
+    {
+        "type":"MC",
+        "question":"Which command prints all the lines containing PAT in file FILE",
+        "responses":{
+            "1":["sed PAT FILE","incorrect"],
+            "2":["grep PAT FILE","correct"],
+            "3":["find PAT FILE","incorrect"],
+            "4":["ls PAT FILE","incorrect"]
+        },
+        "points":10      
+
+    },
+    {
+        "type":"MC",
+        "question":"Which command substitutes PAT with TAP in FILE and prints the output to the terminal",
+        "responses":{
+            "1":["sed r/PAT/TAP/g FILE","incorrect"],
+            "2":["sed s/PAT/TAP/g","correct"],
+            "3":["grep PAT TAP FILE","incorrect"],
+            "4":["replace PAT TAP FILE","incorrect"]
+        },
+        "points":10      
+
+    },
+    {
+        "type":"MC",
+        "question":"Which command deletes a directory whose absolute path is /home/CSC414/mydir. Assume that CWD is /bin",
+        "responses":{
+            "1":["rm -rf ../../home/CSC414/mydir","correct"],
+            "2":["rmdir mydir","incorrect"],
+            "3":["rmdir /mydir","incorrect"],
+            "4":["rmdir /bin/mydir","incorrect"]
+        },
+        "points":10      
+
+    },
+    {
+        "type":"MC",
+        "question":"Which command prints the number of lines in file FILE",
+        "responses":{
+            "1":["print lines FILE","incorrect"],
+            "2":["less -l FILE","incorrect"],
+            "3":["wc -l FILE","correct"],
+            "4":["more -l FILE","incorrect"]
+        } ,
+        "points":10     
+    },
+    {
+        "type":"MC",
+        "question":"What is the output of the last command in the sequence: $mkdir a;$cd a;$touch b;$ls -a>c;$cat c",
+        "responses":{
+            "1":["b c","incorrect"],
+            "2":[". .. b","incorrect"],
+            "3":[". .. b c","correct"],
+            "4":["a b c","incorrect"]
+        } ,
+        "points":10     
+    }
+    ,
+    {
+        "type":"MC",
+        "question":"Starting from any directory which command is used to returns to one's home directory",
+        "responses":{
+            "1":["cd .","incorrect"],
+            "2":["cd ..","incorrect"],
+            "3":["cd","correct"],
+            "4":["go home","incorrect"]
+        } ,
+        "points":10     
+    },
+    {
+        "type":"TF",
+        "question":"Suppose that file File does NOT contain PAT and  the following sequence is executed: $grep PAT FILE;$if [ \"$?\" -eq 0 ]; then echo One; else echo Two; fi. Then the output of the previous sequence is: One",
+        "response":"true",
+        "points":10     
+    },
+    {
+        "type":"MC",
+        "question":"A file called script.sh contains only the following line if [ \"$1\" -eq 7 ]; then exit 1; else exit 0;fi. Now what is the output of the following sequence: $./script.sh 18;$echo $?",
+        "responses":{
+            "1":["0","correct"],
+            "2":["1","incorrect"],
+            "3":["7","incorrect"],
+            "4":["18","incorrect"]
+        } ,
+        "points":10     
+    },
+    {
+        "type":"MC",
+        "question":"This question refers to the content of file1. What is the output of: $grep grep \"t[a-z \\']*s\" file1",
+        "responses":{
+            "1":["1","incorrect"],
+            "2":["2","incorrect"],
+            "3":["3","incorrect"],
+            "4":["4","correct"]
+        } ,
+        "points":10     
+    },
+    {
+        "type":"MC",
+        "question":"This question refers to the content of file1.cpp. Given that the output of $ls -aF is \"./ ../ file1.cpp\" and PATH is empty. What is the output of sequence: $/usr/bin/cc file1.cpp;./a.out",
+        "responses":{
+            "1":["./ ../ file1.cpp","incorrect"],
+            "2":["file1.cpp","incorrect"],
+            "3":["Done","correct"],
+            "4":["file1.cpp Done","incorrect"]
+        } ,
+        "points":10     
+    },
+    {
+        "type":"MC",
+        "question":"This question refers to the content of file2.cpp. Given that the output of $ls -aF is \"./ ../ file1.cpp\" and PATH contains all directories. What is the output of sequence: $/usr/bin/cc file1.cpp;./a.out",
+        "responses":{
+            "1":["./ ../ file1.cpp","incorrect"],
+            "2":["file1.cpp","incorrect"],
+            "3":["Done","correct"],
+            "4":["file1.cpp Done","incorrect"]
+        } ,
+        "points":10     
+    },
+    {
+        "type":"MC",
+        "question":"This question refers to the content of file4.cpp and file1. What is the output of $cc file4.cpp;$cat file1| ./a.out|wc -l",
+        "responses":{
+            "1":["0","correct"],
+            "2":["1","incorrect"],
+            "3":["2","incorrect"],
+            "4":["3","incorrect"]
+        } ,
+        "points":10     
+    },
+    {
+        "type":"MC",
+        "question":"This question refers to the content of file5.cpp and file1. What is the output of $cc file5.cpp;$cat file1| ./a.out | wc -l",
+        "responses":{
+            "1":["0","incorrect"],
+            "2":["1","correct"],
+            "3":["2","incorrect"],
+            "4":["3","incorrect"]
+        } ,
+        "points":10     
+    },
+    {
+        "type":"MC",
+        "question":"This question refers to the content of file6.cpp. What is the output of $cc file6.cpp;$./a.out",
+        "responses":{
+            "1":["x=1","incorrect"],
+            "2":["x=2","incorrect"],
+            "3":["x=3","correct"],
+            "4":["x=4","incorrect"]
+        } ,
+        "points":10     
+    },
+    {
+        "type":"MC",
+        "question":"This question refers to the content of file1. What is the output of $grep grep file1. Note that nothing refers to no output",
+        "responses":{
+            "1":["for grep which is","correct"],
+            "2":["grep","incorrect"],
+            "3":["nothing","incorrect"],
+            "4":["for","incorrect"]
+        } ,
+        "points":10     
+    },
+    {
+        "type":"MC",
+        "question":"This question refers to the content of dir1. What is the output of $ls log-?.txt. Note that nothing refers to no output",
+        "responses":{
+            "1":["log-1.txt log-2.txt","correct"],
+            "2":["log-.txt log-1.txt log-2.txt log-10.txt","incorrect"],
+            "3":["log-1.txt log-2.txt log-10.txt","incorrect"],
+            "4":["nothing","incorrect"]
+        } ,
+        "points":10     
+    },
+    {
+        "type":"MC",
+        "question":"This question refers to the content of dir1. What is the output of $ls log-*.txt. Note that nothing refers to no output",
+        "responses":{
+            "1":["log-1.txt log-2.txt","incorrect"],
+            "2":["log-.txt log-1.txt log-2.txt log-10.txt","correct"],
+            "3":["log-1.txt log-2.txt log-10.txt","incorrect"],
+            "4":["nothing","incorrect"]
+        } ,
+        "points":10     
+    },
+    {
+        "type":"MC",
+        "question":"To change the permission of FILE to read-write-execute owner,read group, read others",
+        "responses":{
+            "1":["chmod 744 FILE","correct"],
+            "2":["chmod 755 FILE","incorrect"],
+            "3":["chmod 766 FILE","incorrect"],
+            "4":["chmod 566 FILE","incorrect"]
+        } ,
+        "points":10     
+    },
+    {
+        "type":"MC",
+        "question":"A file FILE contains 50 lines. Which lines of file FILE are displayed by the following command: $head -10 FILE| tail -2. Note: m-n means from line m to line n",
+        "responses":{
+            "1":["2-10","incorrect"],
+            "2":["2 and 10","incorrect"],
+            "3":["8","incorrect"],
+            "4":["9-10","correct"]
+        } ,
+        "points":10     
+    }, 
+    {
+        "type":"TF",
+        "question":"What is the output of the sequence: $cd;$if [ $(pwd) = \"$HOME\" ]; then echo True; else echo False; fi.",
+        "response":"true",
+        "points":10     
+    },
+    {
+        "type":"MC",
+        "question":"This question refers to main.c, content of dir2, and script1.sh. Also, the file tmain.c is an exact copy of main.c. What would be the output if we run $./script1.sh in directory dir2",
+        "responses":{
+            "1":["1","incorrect"],
+            "2":["2","incorrect"],
+            "3":["3","incorrect"],
+            "4":["4","correct"]
+        } ,
+        "points":10     
+    }, 
+    {
+        "type":"MC",
+        "question":"This question refers to main.c, content of dir2, and script1.sh. Also, the file tmain.c is an exact copy of main.c. What would be the output if we run the sequence: $rm main.c;$./script1.sh in directory dir2",
+        "responses":{
+            "1":["1","correct"],
+            "2":["2","incorrect"],
+            "3":["3","incorrect"],
+            "4":["4","incorrect"]
+        } ,
+        "points":10     
+    },
+    {
+        "type":"MC",
+        "question":"This question refers to main.c, content of dir2, and script1.sh. Also, the file tmain.c is an exact copy of main.c and abc.txt, script2.sh are exact copies of script1.sh. What would be the output if we run the sequence: $rm main.c;$./script1.sh in directory dir2",
+        "responses":{
+            "1":["1","correct"],
+            "2":["2","incorrect"],
+            "3":["3","incorrect"],
+            "4":["4","incorrect"]
+        } ,
+        "points":10     
+    },
+    {
+        "type":"TF",
+        "question":"file File is owned by user ubuntu and has initially permission 644. After executing the sequence: $chmod 444 FILE;echo \"new line\">>FILE as user ubuntu the new content of FILE is the same",
+        "response":"true",
+        "points":10     
+    },
+    {
+        "type":"TF",
+        "question":"file File is owned by user ubuntu and has initially permission 644. After executing the sequence: $chmod 755 FILE;echo \"new line\">>FILE as user ubuntu the new content of FILE is the same",
+        "response":"false",
+        "points":10     
+    },
+    {
+        "type":"TF",
+        "question":"file File is owned by user ubuntu and has initially permission 644. After executing the sequence: $chmod 766 FILE;echo \"new line\">>FILE as user john the new content of FILE is the same",
+        "response":"true",
+        "points":10     
+    }
+
+]
+}

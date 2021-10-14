@@ -1,0 +1,30 @@
+MC	Which command lists the content of the current working directory	ls	correct	ps	incorrect	grep	incorrect	more	incorrect	
+MC	Which command lists the content of the current directory INCLUDING the hidden items	ls	incorrect	ls -a	correct	ls -l	incorrect	ls -F	incorrect	
+MC	Which command lists the content of the current directory while showing the permissions of files	ls	incorrect	ls -a	incorrect	ls -l	correct	ls -F	incorrect	
+MC	Which command prints all the lines containing PAT in file FILE	sed PAT FILE	incorrect	grep PAT FILE	correct	find PAT FILE	incorrect	ls PAT FILE	incorrect	
+MC	Which command substitutes PAT with TAP in FILE and prints the output to the terminal	sed r/PAT/TAP/g FILE	incorrect	sed s/PAT/TAP/g	correct	grep PAT TAP FILE	incorrect	replace PAT TAP FILE	incorrect	
+MC	Which command deletes a directory whose absolute path is /home/CSC414/mydir. Assume that CWD is /bin	rm -rf ../../home/CSC414/mydir	correct	rmdir mydir	incorrect	rmdir /mydir	incorrect	rmdir /bin/mydir	incorrect	
+MC	Which command prints the number of lines in file FILE	print lines FILE	incorrect	less -l FILE	incorrect	wc -l FILE	correct	more -l FILE	incorrect	
+MC	What is the output of the last command in the sequence: $mkdir a;$cd a;$touch b;$ls -a>c;$cat c	b c	incorrect	. .. b	incorrect	. .. b c	correct	a b c	incorrect	
+MC	Starting from any directory which command is used to returns to one's home directory	cd .	incorrect	cd ..	incorrect	cd	correct	go home	incorrect	
+MC	Suppose that file File does NOT contain PAT. What is the output of the following sequence: $grep PAT FILE;$if [ "$?" -eq 0 ]; then echo One; else echo Two; fi	cd .	incorrect	cd ..	incorrect	cd	correct	go home	incorrect	
+TF	Suppose that file File does NOT contain PAT and  the following sequence is executed: $grep PAT FILE;$if [ "$?" -eq 0 ]; then echo One; else echo Two; fi. Then the output of the previous sequence is: One	true	
+MC	A file called script.sh contains only the following line if [ "$1" -eq 7 ]; then exit 1; else exit 0;fi. Now what is the output of the following sequence: $./script.sh 18;$echo $?	0	correct	1	incorrect	7	incorrect	18	incorrect	
+MC	This question refers to the content of file1. What is the output of: $grep grep "t[a-z \']*s" file1	1	incorrect	2	incorrect	3	incorrect	4	correct	
+MC	This question refers to the content of file1.cpp. Given that the output of $ls -aF is "./ ../ file1.cpp" and PATH is empty. What is the output of sequence: $/usr/bin/cc file1.cpp;./a.out	./ ../ file1.cpp	incorrect	file1.cpp	incorrect	Done	correct	file1.cpp Done	incorrect	
+MC	This question refers to the content of file2.cpp. Given that the output of $ls -aF is "./ ../ file1.cpp" and PATH contains all directories. What is the output of sequence: $/usr/bin/cc file1.cpp;./a.out	./ ../ file1.cpp	incorrect	file1.cpp	incorrect	Done	correct	file1.cpp Done	incorrect	
+MC	This question refers to the content of file4.cpp and file1. What is the output of $cc file4.cpp;$cat file1| ./a.out|wc -l	0	correct	1	incorrect	2	incorrect	3	incorrect	
+MC	This question refers to the content of file5.cpp and file1. What is the output of $cc file5.cpp;$cat file1| ./a.out | wc -l	0	incorrect	1	correct	2	incorrect	3	incorrect	
+MC	This question refers to the content of file6.cpp. What is the output of $cc file6.cpp;$./a.out	x=1	incorrect	x=2	incorrect	x=3	correct	x=4	incorrect	
+MC	This question refers to the content of file1. What is the output of $grep grep file1. Note that nothing refers to no output	for grep which is	correct	grep	incorrect	nothing	incorrect	for	incorrect	
+MC	This question refers to the content of dir1. What is the output of $ls log-?.txt. Note that nothing refers to no output	log-1.txt log-2.txt	correct	log-.txt log-1.txt log-2.txt log-10.txt	incorrect	log-1.txt log-2.txt log-10.txt	incorrect	nothing	incorrect	
+MC	This question refers to the content of dir1. What is the output of $ls log-*.txt. Note that nothing refers to no output	log-1.txt log-2.txt	incorrect	log-.txt log-1.txt log-2.txt log-10.txt	correct	log-1.txt log-2.txt log-10.txt	incorrect	nothing	incorrect	
+MC	To change the permission of FILE to read-write-execute owner,read group, read others	chmod 744 FILE	correct	chmod 755 FILE	incorrect	chmod 766 FILE	incorrect	chmod 566 FILE	incorrect	
+MC	A file FILE contains 50 lines. Which lines of file FILE are displayed by the following command: $head -10 FILE| tail -2. Note: m-n means from line m to line n	2-10	incorrect	2 and 10	incorrect	8	incorrect	9-10	correct	
+TF	What is the output of the sequence: $cd;$if [ $(pwd) = "$HOME" ]; then echo True; else echo False; fi.	true	
+MC	This question refers to main.c, content of dir2, and script1.sh. Also, the file tmain.c is an exact copy of main.c. What would be the output if we run $./script1.sh in directory dir2	1	incorrect	2	incorrect	3	incorrect	4	correct	
+MC	This question refers to main.c, content of dir2, and script1.sh. Also, the file tmain.c is an exact copy of main.c. What would be the output if we run the sequence: $rm main.c;$./script1.sh in directory dir2	1	correct	2	incorrect	3	incorrect	4	incorrect	
+MC	This question refers to main.c, content of dir2, and script1.sh. Also, the file tmain.c is an exact copy of main.c and abc.txt, script2.sh are exact copies of script1.sh. What would be the output if we run the sequence: $rm main.c;$./script1.sh in directory dir2	1	correct	2	incorrect	3	incorrect	4	incorrect	
+TF	file File is owned by user ubuntu and has initially permission 644. After executing the sequence: $chmod 444 FILE;echo "new line">>FILE as user ubuntu the new content of FILE is the same	true	
+TF	file File is owned by user ubuntu and has initially permission 644. After executing the sequence: $chmod 755 FILE;echo "new line">>FILE as user ubuntu the new content of FILE is the same	false	
+TF	file File is owned by user ubuntu and has initially permission 644. After executing the sequence: $chmod 766 FILE;echo "new line">>FILE as user john the new content of FILE is the same	true	

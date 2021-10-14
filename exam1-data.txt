@@ -1,0 +1,115 @@
+file1
+-----------------------
+this is a test
+for grep which is
+short for gnu's regular
+expression processor
+it is not used for tables
+therefore stop using it
+=========================
+file1.cpp
+------------------------
+int main(){
+execlp("ls","ls","-a",0);
+printf("Done\n");
+}
+=========================
+file2.cpp
+------------------------
+int main(){
+execl("ls","ls","-a",0);
+printf("Done\n");
+}
+=========================
+file3.cpp
+------------------------
+int main(){
+execlp("ls","-a",0);
+printf("Done\n");
+}
+=========================
+file4.cpp
+------------------------
+int main(int argc,char **argv){
+        pid_t pid;
+        int fd[2];
+        pipe(fd);
+
+        pid=fork();
+        if(pid==0){
+           dup2(fd[1],1);
+           close(fd[0]);close(fd[1]);
+           execlp("grep","grep","g[a-z ]*s",NULL);
+
+        }
+        else {
+           dup2(fd[0],0);
+                close(fd[0]);close(fd[1]);
+           execlp("sed","sed","s/s/z/g",NULL);
+        }
+}
+=========================
+file5.cpp
+------------------------
+int main(int argc,char **argv){
+        pid_t pid;
+        int fd[2];
+        pipe(fd);
+
+        pid=fork();
+        if(pid==0){
+           dup2(fd[0],0);
+           close(fd[0]);close(fd[1]);
+           execlp("grep","grep","g[a-z ]*s",NULL);
+
+        }
+        else {
+           dup2(fd[1],1);
+                close(fd[0]);close(fd[1]);
+           execlp("sed","sed","s/s/z/g",NULL);
+        }
+}
+=========================
+file6.cpp
+------------------------
+int main(){
+    pid_t pid;
+    int x=2,status;
+    x++;
+    pid=fork()
+    if (pid==0)
+        printf("x=%d\n",x);
+    else{
+        x++;
+        wait(&status);
+    }
+}
+=========================
+content of dir1
+------------------------
+log-.txt log-1.txt log-2.txt log-10.txt
+=========================
+main.c
+------------------------
+#include <stdio.h>
+int main(){
+
+}
+=========================
+content of dir2
+------------------------
+abc.txt main.c script1.sh script2.sh tmain.c
+=========================
+script1.sh
+------------------------
+count=0
+r=0
+for x in $(ls)
+do
+        if [ ${x%.c}.c = $x ]
+        then
+                r=$(grep -c stdio $x)
+        fi
+        count=$((count+r))
+done
+echo $count
